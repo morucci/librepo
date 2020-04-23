@@ -476,6 +476,8 @@ lr_check_repomd_xml_asc_availability(LrHandle *handle,
             g_clear_error(&tmp_err);
             unlink(signature);
             lr_free(signature);
+            lr_free(path);
+            close(fd);
             return FALSE;
         } else {
             // Signature downloaded
